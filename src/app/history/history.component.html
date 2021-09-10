@@ -1,0 +1,15 @@
+<h3>History</h3>
+<ul class="list">
+  <li
+    *ngFor="let transaction of transactions"
+    [ngClass]="{ minus: transaction.value < 0, plus: transaction.value > 0 }"
+  >
+    {{ transaction.title }}
+    <span>
+      {{ transaction.value < 0 ? "-" : "+" }} ${{ transaction.value }}
+    </span>
+    <button (click)="deleteTransaction(transaction.id)" class="delete-btn">
+      x
+    </button>
+  </li>
+</ul>
